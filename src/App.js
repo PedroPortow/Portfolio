@@ -1,24 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import HeroSection from './components/HeroSection';
+import InfoSection from './components/InfoSection';
+import Navbar from './components/Navbar';
+import { homeObjOne, homeObjTwo } from './components/InfoSection/Data';
+import Services from './components/Services';
+import { heroSection } from './components/HeroSection/Data';
+import Contactt from './components/Contactt';
+// import Mailer from './components/emailForm';
+import React, {useState} from 'react';
+// import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 
-function App() {
+
+
+function App(props) {
+  const [ isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Sidebar isOpen={isOpen} toggle={toggle}/>
+      <Navbar toggle={toggle} />
+    
+      <HeroSection {...heroSection}  />
+      <InfoSection {...homeObjOne}  />
+      <Services />
+      <InfoSection {...homeObjTwo}  />
+      <Contactt  />
+      <Footer />
+       
+      
+ 
+    </>
   );
 }
 
