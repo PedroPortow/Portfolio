@@ -118,7 +118,9 @@ export const HeroInvite = styled(Link)`
     touch-action: manipulation;
     
    
-
+    @media screen and (max-width: 447px){
+        display:none ;
+    }
     &:hover {
     box-shadow: rgba(80, 63, 205, 0.1) 0 1px 30px;
     transition-duration: .1s;
